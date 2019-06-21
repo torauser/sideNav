@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vertical</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navContainer">  
+        <div class="profile">
+            <div class="avatar"></div>
+            <p>BIBOS BUBAS</p>
+        </div>
+        <hr class="divider">
+        <ul class="navBar">
+                <li class="menu">Menu</li>
+                <a href="#bug1" class="item">Item 1</a>
+                <a href="#bug2" class="item">Item 2</a>
+                <a href="#bug3" class="item">Item 3</a>
+                <a href="#bug4" class="item">Item 4</a>
+                <li class="item drop">
+                    Dropdown
+                    <div class="drop-content">
+                        <a href="#bug5">item</a>
+                        <a href="">item</a>
+                        <a href="">item</a>
+                    </div>
+                </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="content" id="bug1">
+            <img src="./content/bug.PNG" alt="" class="image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id erat vitae ligula auctor pellentesque vitae congue mi. Praesent egestas, orci sit amet tincidunt venenatis, massa mauris ornare magna, sed auctor justo augue ac ante. Cras elit risus, efficitur scelerisque dolor nec, tincidunt vestibulum dui. In nec leo id elit mollis cursus. Ut sodales consequat mollis. Suspendisse nec dui et tortor pretium semper et ac mi. Etiam eget magna quis lacus feugiat viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac risus vel lectus suscipit ullamcorper vitae nec metus.</p>
+        </div>
+        <div class="content" id="bug2">
+            <img src="./content/bug.PNG" alt="" class="image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id erat vitae ligula auctor pellentesque vitae congue mi. Praesent egestas, orci sit amet tincidunt venenatis, massa mauris ornare magna, sed auctor justo augue ac ante. Cras elit risus, efficitur scelerisque dolor nec, tincidunt vestibulum dui. In nec leo id elit mollis cursus. Ut sodales consequat mollis. Suspendisse nec dui et tortor pretium semper et ac mi. Etiam eget magna quis lacus feugiat viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac risus vel lectus suscipit ullamcorper vitae nec metus.</p>
+        </div>
+        <div class="content" id="bug3">
+            <img src="./content/bug.PNG" alt="" class="image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id erat vitae ligula auctor pellentesque vitae congue mi. Praesent egestas, orci sit amet tincidunt venenatis, massa mauris ornare magna, sed auctor justo augue ac ante. Cras elit risus, efficitur scelerisque dolor nec, tincidunt vestibulum dui. In nec leo id elit mollis cursus. Ut sodales consequat mollis. Suspendisse nec dui et tortor pretium semper et ac mi. Etiam eget magna quis lacus feugiat viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac risus vel lectus suscipit ullamcorper vitae nec metus.</p>
+        </div>
+        <div class="content" id="bug4">
+            <img src="./content/bug.PNG" alt="" class="image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id erat vitae ligula auctor pellentesque vitae congue mi. Praesent egestas, orci sit amet tincidunt venenatis, massa mauris ornare magna, sed auctor justo augue ac ante. Cras elit risus, efficitur scelerisque dolor nec, tincidunt vestibulum dui. In nec leo id elit mollis cursus. Ut sodales consequat mollis. Suspendisse nec dui et tortor pretium semper et ac mi. Etiam eget magna quis lacus feugiat viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac risus vel lectus suscipit ullamcorper vitae nec metus.</p>
+        </div>
+        <div class="content" id="bug5">
+            <img src="./content/bug.PNG" alt="" class="image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id erat vitae ligula auctor pellentesque vitae congue mi. Praesent egestas, orci sit amet tincidunt venenatis, massa mauris ornare magna, sed auctor justo augue ac ante. Cras elit risus, efficitur scelerisque dolor nec, tincidunt vestibulum dui. In nec leo id elit mollis cursus. Ut sodales consequat mollis. Suspendisse nec dui et tortor pretium semper et ac mi. Etiam eget magna quis lacus feugiat viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac risus vel lectus suscipit ullamcorper vitae nec metus.</p>
+        </div>
+    </div>
+    <footer>
+        <p>usertorokov@gmail.com</p>
+    </footer>
+    <script>
+        const images = document.querySelectorAll('img');
+
+        const options = {
+            root: null,
+            threshold: 0.7,
+        }
+
+        const observer = new IntersectionObserver(function(entries,observer){
+            entries.forEach(e=>{
+                if (!e.isIntersecting) {
+                    return;
+                }
+                console.log(e.target);
+                e.target.classList.toggle("img-effect")
+                observer.unobserve(e.target);
+            })
+        }, options)
+
+        images.forEach(img=>{
+            observer.observe(img);
+        })
+    </script>
+</body>
+</html>
